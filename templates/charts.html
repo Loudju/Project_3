@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Placeholder Charts Landing Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0f04;
+  color: white;
+}
+</style>
 </head>
-
 <body>
-  <h1>Dashboard</h1>
-  <p>This Dashboard can be used as a simple navigation tool to explore the data visualization charts from the weather analysis results</p>
 
-    <img src="templates/images/lat-temperature-plot.png" alt="Latitude Vs Temp Plot">
-    <img src="templates/images/lat-humidity-plot.png" alt="Latitude Vs Temp Plot">
-    <img src="templates/images/lat-clouds-plot.png" alt="Latitude Vs Temp Plot">
-    <img src="templates/images/lat-wind-plot.png" alt="Latitude Vs Temp Plot">
+<div class="topnav">
+  <a class="active" href="/">Charts</a>
+  <a href="/">Home</a>
+  <a href="map">Map</a>
+</div>
 
+<div style="padding-left:16px">
+  <h2>Weather Alerts Charts</h2>
+  <p>Explore weather alert summary analysis</p>
+</div>
+
+<!-- Image -->
+<img src="https://engineering.atspotify.com/wp-content/uploads/sites/2/2018/11/Introducing-Chartify.png" alt="Chart Placeholder">
 </body>
-
 </html>
