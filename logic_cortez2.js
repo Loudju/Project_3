@@ -1,5 +1,5 @@
-// Store our API endpoint as queryUrl. This will be coming from app.py
-var queryUrl = weather_response 
+// Store our API endpoint as queryUrl. This will be coming from app.py (weather_response )
+var queryUrl = "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f4d1b1c6788eb846c0d568f0d3c647573e1db0c9.001.1"
 
 // Perform a GET request to the query URL/
 d3.json(queryUrl).then(function (weatherData) {
@@ -7,25 +7,25 @@ d3.json(queryUrl).then(function (weatherData) {
   createFeatures(weatherData.features);
 });
 
-function createFeatures(mapData) {
+function createFeatures(weatherData) {
 
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
-    layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`);
+    layer.bindPopup(`<h3>${feature.properties.event}</h3><hr><p>${(feature.properties.areaDesc)}</p>`);
   }
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
   // Run the onEachFeature function once for each piece of data in the array.
-  var earthquakes = L.geoJSON(earthquakeData, {
+  var weatheralearts = L.geoJSON(weatherData, {
     onEachFeature: onEachFeature
   });
 
   // Send our earthquakes layer to the createMap function/
-  createMap(earthquakes);
+  createMap(weatheralearts);
 }
 
-function createMap(earthquakes) {
+function createMap(weatheralearts) {
 
   // Create the base layers.
   var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,7 +44,7 @@ function createMap(earthquakes) {
 
   // Create an overlay object to hold our overlay.
   var overlayMaps = {
-    Earthquakes: earthquakes
+    weatheralearts: weatheralearts
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load.
