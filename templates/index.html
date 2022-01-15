@@ -1,0 +1,119 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0f04;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="map">Map</a>
+  <a href="charts">Charts</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Weather Alerts Home Page</h2>
+  <p>Use the state navigator to explore severe weather alerts by State</p>
+</div>
+
+<div class="states_menu">
+<form action="action_form.php" method="get">
+  <input type="text" list="states_menu" name="states_menu">
+  <select name="states_menu" width = "300px">
+    {% for state in states %}
+    <option value= {{state}}>{{state}}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="search">
+</form>
+</div>
+# Call the API endpoint
+<!-- Image -->
+<img src="https://images.foxtv.com/static.fox26houston.com/www.fox26houston.com/content/uploads/2019/10/764/432/GFX_SEVERE_WEATHER_Large_Logo_PM_Blue_Red_HD1_Full_1460971142271_1193483_ver1.0_640_360.png?ve=1&tl=1" alt="AlertsHome">
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0f04;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="map">Map</a>
+  <a href="charts">Charts</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Weather Alerts Home Page</h2>
+  <p>Use the state navigator to explore severe weather alerts by State</p>
+</div>
+
+<!-- Image -->
+<img src="https://images.foxtv.com/static.fox26houston.com/www.fox26houston.com/content/uploads/2019/10/764/432/GFX_SEVERE_WEATHER_Large_Logo_PM_Blue_Red_HD1_Full_1460971142271_1193483_ver1.0_640_360.png?ve=1&tl=1" alt="AlertsHome">
+</body>
+</html>
+>>>>>>> 70cc9b32eb64e442478b9836b2c5497b838574a5
