@@ -47,9 +47,8 @@ body {
 </div>
 
 <div class="states_menu">
-<form action="action_form.php" method="get">
-  <input type="text" list="states_menu" name="states_menu">
-  <select name="states_menu" width = "300px">
+<form action='/data/${state}' method="get">
+  <select name="state" width = "300px">
     {% for state in states %}
     <option value= {{state}}>{{state}}</option>
     {% endfor %}
