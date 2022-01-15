@@ -6,6 +6,10 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url(../templates/images/pexels-ralph-w-lambrecht-1446076.jpg);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: cover;
 }
 
 .topnav {
@@ -42,8 +46,8 @@ body {
 </div>
 
 <div style="padding-left:16px">
-  <h2>Weather Alerts Home Page</h2>
-  <p>Use the state navigator to explore severe weather alerts by State</p>
+  <h2 style= "background-color: dodgerblue;">Weather Alerts Home Page</h2>
+  <p style = "background-color: firebrick;" class="font-weight-bold">Use the state navigator to explore severe weather alerts by State</p>
 </div>
 
 <div class="states_menu">
@@ -56,8 +60,15 @@ body {
   <input type="submit" value="search">
 </form>
 </div>
-# Call the API endpoint
+
 <!-- Image -->
-<img src="https://images.foxtv.com/static.fox26houston.com/www.fox26houston.com/content/uploads/2019/10/764/432/GFX_SEVERE_WEATHER_Large_Logo_PM_Blue_Red_HD1_Full_1460971142271_1193483_ver1.0_640_360.png?ve=1&tl=1" alt="AlertsHome">
+<style>
+  div { text-align: center;
+  }
+</style>
+<div>
+    <img src="../templates/images/index-image.png" alt = "weather alerts" style = "width:30%">
+</div>
+
 </body>
 </html>
