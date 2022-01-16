@@ -8,7 +8,7 @@ app = Flask(__name__)
 state_codes = scrape_states.scrape()
 print("This is the state code list:", state_codes)
 
-@app.route("/")
+@app.route("/", methods = ['POST', 'GET'])
 def index():
     #home page for info and navigation
     return render_template("index.html", states = state_codes)
