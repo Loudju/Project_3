@@ -33,28 +33,8 @@ body {
 }
 </style>
 </head>
-<body>
 
-<div class="topnav">
-  <a class="active" href="/">Charts</a>
-  <a href="/">Home</a>
-  <a href="map">Map</a>
-</div>
 
-<div style="padding-left:16px">
-  <h2>Weather Alerts Charts</h2>
-  <p>Explore weather alert summary analysis</p>
-</div>
-
-<!-- Image -->
-<img src="https://engineering.atspotify.com/wp-content/uploads/sites/2/2018/11/Introducing-Chartify.png" alt="Chart Placeholder">
-</body>
-</html>
-
-<!--Line Chart Code-->
-<canvas id="line-chart" width="800" height="450"></canvas>
-
-<!--Bar Graph Code-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -62,19 +42,45 @@ body {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart.js Bar Chart</title>
+    <style type="text/css">
+        .chartBox {
+            width: 1200px;
+
+        }
+    </style>
     <!--Chart.js JS CDN--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
   </head>
   <body>
 
-    <div>
+    <div class="chartBox">
 	<canvas id="myChart"></canvas>
     </div>
 
+    <div class="chartBox">
+        <canvas id="myChart1"></canvas>
+    </div>
+
     <script>
-      var ctx = document.getElementById('myChart').getContext('2d');
-      var myChart = new Chart(ctx, {
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
           type: 'bar',
+          data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{ 
+                data: [86,114,106,106,107,111,133],
+                label: "Total",
+                borderColor: "rgb(62,149,205)",
+                backgroundColor: "rgb(62,149,205,0.1)",
+                borderWidth:2
+              }
+            ],
+        },
+    });
+
+        const ctx1 = document.getElementById('myChart1').getContext('2d');
+      const myChart1 = new Chart(ctx1, {
+          type: 'line',
           data: {
             labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             datasets: [{ 
@@ -105,6 +111,7 @@ body {
             ]
           },
         });
+        
     </script>
 
   
