@@ -1,3 +1,5 @@
+from asyncio import events
+from distutils.log import set_verbosity
 from werkzeug.utils import secure_filename
 import weather_data
 import scrape_states
@@ -17,7 +19,7 @@ def index():
 def charts():
     #display drop down menu with states list
     #accept the state selection and display charts
-    return  render_template("charts.html")
+    return  render_template("charts.html", states= state_codes)
 
 @app.route("/map")
 def map():
