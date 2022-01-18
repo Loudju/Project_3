@@ -1,6 +1,10 @@
 import requests
 import scrape_states
+import json
+import collections
 from geojson import Point, Feature, FeatureCollection, dump
+from bson import json_util
+from bson.json_util import dumps
 from pymongo import MongoClient
 
 def api(state):
@@ -35,9 +39,12 @@ def api(state):
     return weather_response
 
 def json(state):
+    headline = []
+    coordinates = []
+    properties = {"headline":headline}
+    geometry = {"type":"Polygon", "coordinates":coordinates}
     features = []
-    point = Point(())
-    properties = {}
+    #state = scrape_states.scrape()
     error = 0
     
     try:
@@ -45,29 +52,26 @@ def json(state):
             weather_response = requests.get(query).json()
 
             #validating inputs
-            print(state)
-            print(query)
+            #print(state)
+            #print(query)
 
             if len(weather_response["features"]) > 0:
                 impacts = len(weather_response["features"])
                 for x in range(impacts):
-                    point = weather_response["features"][x]["geometry"]["coordinates"]
-                    properties = {"headline": weather_response["features"][x]["properties"]["headline"]}
-                    features.append(Feature(geometry=point, properties=properties))
+                    headline.append(weather_response["features"][x]["properties"]["headline"])
+                    coordinates.append(weather_response["features"][x]["geometry"]["coordinates"])
     except KeyError:
             error = error + 1
     except TypeError:
             error = error + 1
+    features.append(Feature(geometry=geometry, properties=properties))
     feature_collection = FeatureCollection(features)
     with open("feature_collection_geoJson.geojson", 'w') as g:
          dump(feature_collection, g)
     client = MongoClient("localhost", 27017)
     db = client["weather_db"]
     collection = db["collections"]
-    with open("feature_collection_json.json", 'w') as j:
-         collection_file = json.load(j)
-    collection.insert_one(collection_file)
+    collection.insert_one(feature_collection)
     client.close()
-    return feature_collection
-
-
+    feature_response = json_util.dumps(feature_collection)
+    return feature_response
