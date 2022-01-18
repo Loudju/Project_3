@@ -1,4 +1,4 @@
-from asyncio import events
+from asyncio import Event, events
 from distutils.log import set_verbosity
 from werkzeug.utils import secure_filename
 import weather_data
@@ -9,6 +9,8 @@ app = Flask(__name__)
 
 state_codes = scrape_states.scrape()
 print("This is the state code list:", state_codes)
+
+
 
 @app.route("/", methods = ['POST', 'GET'])
 def index():
