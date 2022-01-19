@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+
+<!-- D3 Library -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin="" />
+
+<!-- Leaflet JavaScript code -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+
+</head>
+<body>
+
+<div class="states_menu">
+<form>
+  <select id= "stateselector" onchange="buildmap(this.value)" name="state" width = "300px">
+    <!-- {% for state in states %}
+    <option value= {{state}}>{{state}}</option>
+    {% endfor %} -->
+  </select>
+  <input id='buildmap' type="submit" value="search">
+</form>
+</div>
+# Call the API endpoint
+<!-- Image -->
+<img src="https://images.foxtv.com/static.fox26houston.com/www.fox26houston.com/content/uploads/2019/10/764/432/GFX_SEVERE_WEATHER_Large_Logo_PM_Blue_Red_HD1_Full_1460971142271_1193483_ver1.0_640_360.png?ve=1&tl=1" alt="AlertsHome">
+ <!-- The div where we'll insert our map -->
+ <div id="map"></div>
+<!-- JavaScript file -->
+<script type="text/javascript" src='../static/logic_cortez.js'></script>
+
+</body>
+</html>
+
